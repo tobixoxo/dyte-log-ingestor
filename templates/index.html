@@ -1,0 +1,39 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Query Interface</title>
+</head>
+<body>
+    <h1>Log Query Interface</h1>
+    <form action="/search" method="post">
+        <label for="level">Level:</label>
+        <input type="text" name="level">
+        <br>
+        <label for="message">Message:</label>
+        <input type="text" name="message">
+        <br>
+        <label for="resourceId">resourceId:</label>
+        <input type="text" name="resourceId">
+        <br>
+        <label for="timestamp">timestamp:</label>
+        <input type="text" name="timestamp">
+        <br>
+        <label for="traceId">traceId:</label>
+        <input type="text" name="traceId">
+        <br>
+        <label for="spanId">spanId:</label>
+        <input type="text" name="spanId">
+        <br>
+        <label for="commit_hash">commit:</label>
+        <input type="text" name="commit_hash">
+        <br>
+        <label for="parentResourceId">parentResourceIde:</label>
+        <input type="text" name="parentResourceId">
+        <br>
+        <input type="submit" value="Search">
+    </form>
+</body>
+</html>
