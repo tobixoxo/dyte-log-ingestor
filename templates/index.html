@@ -8,7 +8,14 @@
 </head>
 <body>
     <h1>Log Query Interface</h1>
+    
     <form action="/search" method="post">
+        <label for="startTime">Start Time:</label>
+        <input type="text" name="startTime" placeholder="2000-01-01 00:00:00" value="2000-01-01 00:00:00">
+        <br>
+        <label for="endTime">End Time:</label>
+        <input type="text" name="endTime" placeholder="2100-12-31 23:59:59" value="2100-12-31 23:59:59">
+        <br>
         <label for="level">Level:</label>
         <input type="text" name="level">
         <br>
@@ -17,9 +24,6 @@
         <br>
         <label for="resourceId">resourceId:</label>
         <input type="text" name="resourceId">
-        <br>
-        <label for="timestamp">timestamp:</label>
-        <input type="text" name="timestamp">
         <br>
         <label for="traceId">traceId:</label>
         <input type="text" name="traceId">

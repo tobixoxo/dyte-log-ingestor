@@ -1,5 +1,5 @@
 # log_ingestor.py
-from flask import Flask, request
+from flask import Flask, request, render_template
 from flask_restful import Resource, Api
 import sqlite3
 from datetime import datetime
@@ -57,6 +57,37 @@ class LogIngestor(Resource):
         return {'message': 'Log ingested successfully'}, 201
 
 api.add_resource(LogIngestor, '/ingest')
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/search', methods=['POST'])
+def search():
+    query_params = request.form.to_dict()
+    print(query_params.keys)
+
+    conn = sqlite3.connect('logs.db')
+    cursor = conn.cursor()
+    
+    # Build the query based on the filters
+    query = 'SELECT * FROM logs WHERE 1=1'
+    params = []
+    for key, value in query_params.items():
+        if value and (key != "startTime") and (key != "endTime"):
+            query += f' AND {key}=?'
+            params.append(value)
+    query += f' AND timestamp BETWEEN \'{query_params["startTime"]}\' AND \'{query_params["endTime"]}\''
+
+    # Execute the query
+    print(query)
+    cursor.execute(query, params)
+    result = cursor.fetchall()
+
+    conn.close()
+
+    return render_template('result.html', logs=result)
+
+
 
 if __name__ == '__main__':
     app.run(port=3000)
