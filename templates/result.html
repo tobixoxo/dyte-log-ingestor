@@ -1,38 +1,103 @@
-<!-- templates/result.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Search Results</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .result-container {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-list {
+            list-style: none;
+            padding: 0;
+            margin: 0; /* Remove default margin */
+        }
+
+        .result-list th, .result-list td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .result-list th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        .result-list tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #888;
+        }
+    </style>
 </head>
 <body>
-    <h1>Search Results</h1>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Level</th>
-            <th>Message</th>
-            <th>Resource ID</th>
-            <th>Timestamp</th>
-            <th>Trace ID</th>
-            <th>Span ID</th>
-            <th>Commit</th>
-            <th>Parent Resource ID</th>
-        </tr>
-        {% for log in logs %}
-        <tr>
-            <td>{{ log[0] }}</td>
-            <td>{{ log[1] }}</td>
-            <td>{{ log[2] }}</td>
-            <td>{{ log[3] }}</td>
-            <td>{{ log[4] }}</td>
-            <td>{{ log[5] }}</td>
-            <td>{{ log[6] }}</td>
-            <td>{{ log[7] }}</td>
-            <td>{{ log[8] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+
+<div class="container">
+    <div class="header">
+        <h1>Search Results</h1>
+    </div>
+
+    <div class="result-container">
+        <table class="result-list">
+            <tr>
+                <th>ID</th>
+                <th>Level</th>
+                <th>Message</th>
+                <th>Resource ID</th>
+                <th>Timestamp</th>
+                <th>Trace ID</th>
+                <th>Span ID</th>
+                <th>Commit</th>
+                <th>Parent Resource ID</th>
+            </tr>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log[0] }}</td>
+                <td>{{ log[1] }}</td>
+                <td>{{ log[2] }}</td>
+                <td>{{ log[3] }}</td>
+                <td>{{ log[4] }}</td>
+                <td>{{ log[5] }}</td>
+                <td>{{ log[6] }}</td>
+                <td>{{ log[7] }}</td>
+                <td>{{ log[8] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<div class="footer">
+    Made with ❤️ by <a href="https://github.com/tobixoxo" target="_blank">Sanjeev</a>
+</div>
+
 </body>
 </html>

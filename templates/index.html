@@ -1,43 +1,107 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: grid;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #888;
+        }
+    </style>
     <title>Log Query Interface</title>
 </head>
 <body>
-    <h1>Log Query Interface</h1>
-    
-    <form action="/search" method="post">
-        <label for="startTime">Start Time:</label>
-        <input type="text" name="startTime" placeholder="2000-01-01 00:00:00" value="2000-01-01 00:00:00">
-        <br>
-        <label for="endTime">End Time:</label>
-        <input type="text" name="endTime" placeholder="2100-12-31 23:59:59" value="2100-12-31 23:59:59">
-        <br>
-        <label for="level">Level:</label>
-        <input type="text" name="level">
-        <br>
-        <label for="message">Message:</label>
-        <input type="text" name="message">
-        <br>
-        <label for="resourceId">resourceId:</label>
-        <input type="text" name="resourceId">
-        <br>
-        <label for="traceId">traceId:</label>
-        <input type="text" name="traceId">
-        <br>
-        <label for="spanId">spanId:</label>
-        <input type="text" name="spanId">
-        <br>
-        <label for="commit_hash">commit:</label>
-        <input type="text" name="commit_hash">
-        <br>
-        <label for="parentResourceId">parentResourceIde:</label>
-        <input type="text" name="parentResourceId">
-        <br>
-        <input type="submit" value="Search">
-    </form>
+
+<div class="container">
+    <div class="header">
+        <h1>Log Query Interface</h1>
+    </div>
+
+    <div class="form-container">
+        <form action="/search" method="post">
+            <label for="startTime">Start Time:</label>
+            <input type="text" name="startTime" placeholder="2000-01-01 00:00:00" value="2000-01-01 00:00:00">
+            
+            <label for="endTime">End Time:</label>
+            <input type="text" name="endTime" placeholder="2100-12-31 23:59:59" value="2100-12-31 23:59:59">
+            
+            <label for="level">Level:</label>
+            <input type="text" name="level">
+            
+            <label for="message">Message:</label>
+            <input type="text" name="message">
+            
+            <label for="resourceId">resourceId:</label>
+            <input type="text" name="resourceId">
+            
+            <label for="traceId">traceId:</label>
+            <input type="text" name="traceId">
+            
+            <label for="spanId">spanId:</label>
+            <input type="text" name="spanId">
+            
+            <label for="commit_hash">commit:</label>
+            <input type="text" name="commit_hash">
+            
+            <label for="parentResourceId">parentResourceIde:</label>
+            <input type="text" name="parentResourceId">
+            
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</div>
+<div class="footer">
+    Made with ❤️ by <a href="https://github.com/tobixoxo" target="_blank">Sanjeev</a>
+</div>
+
 </body>
 </html>
