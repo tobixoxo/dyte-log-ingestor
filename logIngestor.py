@@ -29,12 +29,12 @@ conn.close()
 class LogIngestor(Resource):
     def post(self):
         log_data = request.get_json()
-
-        # Convert timestamp to ISO format
-        log_data['timestamp'] = datetime.fromisoformat(log_data['timestamp']).strftime('%Y-%m-%d %H:%M:%S')
-
+        
         conn = sqlite3.connect('logs.db')
         cursor = conn.cursor()
+        
+        # Convert timestamp to ISO format
+        log_data['timestamp'] = datetime.fromisoformat(log_data['timestamp']).strftime('%Y-%m-%d %H:%M:%S')
 
         # Insert log into the database
         cursor.execute('''
@@ -73,7 +73,7 @@ def search():
     query = 'SELECT * FROM logs WHERE 1=1'
     params = []
     for key, value in query_params.items():
-        if value and (key != "startTime") and (key != "endTime"):
+        if value and (key != "startTime") and (key != "endTime") and (key != "regEx"):
             query += f' AND {key}=?'
             params.append(value)
     query += f' AND timestamp BETWEEN \'{query_params["startTime"]}\' AND \'{query_params["endTime"]}\''
@@ -87,7 +87,6 @@ def search():
 
     return render_template('result.html', logs=result)
 
-
-
 if __name__ == '__main__':
-    app.run(port=3000)
+    print("Running on port 3000")
+    app.run(host='0.0.0.0', port=3000)
